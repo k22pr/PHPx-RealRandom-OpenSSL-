@@ -3,7 +3,9 @@
 	// https://github.com/k22pr/PHPx-String2Mix
 
 	//PHP Real Random
-	function real_rand($min,$max){
+	function real_rand(int $min=NULL,int $max=NULL) : int{
+		$min = $min ?? 0;
+		$max = $max ?? mt_getrandmax();
 		if($min >= $max) return 0;
 		else if(!function_exists("openssl_random_pseudo_bytes")) exit("<b>not support openssl_random_pseudo_bytes()</b>");
 		else{
